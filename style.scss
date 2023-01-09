@@ -15,6 +15,7 @@ $regular-weight: 400;
 html{
     font-family: $body-font-stack;
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 a{
     color: $highlight-color2;
@@ -41,27 +42,6 @@ a{
 .grid-container-2,.grid-container-3,.grid-container-4,.grid-container-6{
     grid-template-columns: 1fr; 
 }
-// .grid-container-2{
-//     display: grid; 
-//     grid-template-columns: 1fr 1fr; 
-//     gap: 0px 20px; 
-//     align-items: center;
-// }
-// .grid-container-3{
-//     display: grid; 
-//     grid-template-columns: 1fr 1fr 1fr; 
-//     gap: 0px 20px; 
-// }
-// .grid-container-4{
-//     display: grid; 
-//     grid-template-columns: 1fr 1fr 1fr 1fr; 
-//     gap: 0px 20px; 
-// }
-// .grid-container-6{
-//     display: grid; 
-//     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
-//     gap: 0px 20px; 
-// }
 p{
     font-family: $body-font-stack;
     color: $text-color;
@@ -126,16 +106,75 @@ h1, h2, h3, h4, h5{
     margin-left: 60px;
 }
 header{
-    background-color: $cta-green;
     padding: 30px 0;
+    text-align: right;
+    background-color: $dark-blue;
+    position: fixed;
+    top: 0;
+    width: 100%
 }
 .display-img{
     width: 100%;
 }
+/*sidebar nav*/
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #53c295;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+    &:hover{
+        color: $pastel-blue;
+    }
+  }
+  
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: $highlight-color2;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    position: sticky;
+  }
+  
+  .openbtn:hover {
+    background-color: $highlight-color1;
+    transition: .5s all linear;
+  }
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
 /*hero area*/
 .hero-container{
      padding: 25px 0 80px 0;
      background-color: $light-blue;
+     margin-top: 50px;
      p{
         color: #fff;
         font-size: 1.25rem;
@@ -183,6 +222,12 @@ h2.panel-title{
     }
 
 }
+.img-container{
+    padding: 0 20px;
+    img{
+        border: 1px solid $dark-blue;
+    }
+}
 #definition {
     padding-top: 125px;
   }
@@ -190,7 +235,7 @@ h2.panel-title{
     text-align: center;
 }
 #sync,#async{
-    width: 50%;
+    width: 100%;
     padding: 0 25px;
     margin: 1rem auto;
 }
@@ -203,16 +248,24 @@ h2.panel-title{
 #history ol{
     list-style: upper-roman;
   }
-#history ol li, #benefits ul li, #about ul li{
+#history ol li, #benefits ul li, #about ul li, #references ul li{
     font-size: 1.5rem;
     line-height: 1.75;
     margin: 1rem auto;
 }
-#benefits ul li,#about ul li{
+#benefits ul li,#references ul li,#about ul li{
     list-style-type: disc;
 }
-
 #about {
+    .panel-title{
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .grid-container-2{
+        align-items: unset;  
+    }
+}
+#references {
     padding: 75px auto;
     .panel-title{
         color: #fff;
@@ -223,28 +276,8 @@ h2.panel-title{
         margin-top: 3rem;
     }
 }
-.quote{
-    font-size: 1.953125rem;
-    margin-top: 50px;
-}
-.grid-container-3{
-    h2{
-        text-align: center;
-    }
-    h3{
-        margin-bottom: 25px;       
-    }
-    p{
-        color: $text-color;
-        text-align: left;
-    }
-}
-.grid-container-6{
-    .panel-box .subtitle{
-        color: $dark-blue;
-        margin-bottom: 10px;
-    }
-}
+
+
 footer{
     background-color: $text-color;
     padding: 40px 0;
@@ -265,9 +298,6 @@ footer{
         border-bottom: 1px solid #fff;
         margin-bottom: 13px;
     }
-    .grid-container-2{
-        align-items: unset;
-    }
     #copyright{
         text-align: center;
         margin-top: 30px;
@@ -277,5 +307,8 @@ footer{
     .grid-container-2{
         grid-template-columns: 1fr 1fr; 
         align-items: center;
+    }
+    #sync,#async{
+        width: 50%;
     }
   }
